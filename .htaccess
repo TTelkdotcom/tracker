@@ -1,0 +1,14 @@
+<IfModule mod_rewrite.c>
+#enables mod_rewrite
+RewriteEngine On
+
+#sets the base
+RewriteBase /
+ErrorDocument 403 your404domain.com
+
+#sends all requests to index.php
+RewriteRule ^index\.php$ - [L]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule . /index.php [L]
+</IfModule>
